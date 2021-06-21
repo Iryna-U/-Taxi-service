@@ -23,11 +23,10 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public Car create(Car car) {
-        String insertQuery = "INSERT INTO cars (model, manufacturer_id)"
+        String insertQuery = "INSERT INTO cars (model, manufacturer_id) "
                 + "VALUES (?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(
+                PreparedStatement preparedStatement = connection.prepareStatement(
                              insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, car.getModel());
             preparedStatement.setLong(2, car.getManufacturer().getId());
@@ -59,6 +58,7 @@ public class CarDaoImpl implements CarDao {
                         connection.prepareStatement(selectQuery)) {
             preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
+            // ResultSet resultSet1 = preparedStatement.getResultSet();
             if (resultSet.next()) {
                 car = parseCarFromResultSet(resultSet);
             }

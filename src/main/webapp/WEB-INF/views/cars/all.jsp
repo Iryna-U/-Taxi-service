@@ -20,18 +20,10 @@
     </tr>
     <c:forEach var="car" items="${cars}">
         <tr>
-            <td>
-                <c:out value="${car.id}"/>
-            </td>
-            <td>
-                <c:out value="${car.model}"/>
-            </td>
-            <td>
-                <c:out value="${car.manufacturer.name}"/>
-            </td>
-            <td>
-                <c:out value="${car.manufacturer.country}"/>
-            </td>
+            <td><c:out value="${car.id}"/></td>
+            <td><c:out value="${car.model}"/></td>
+            <td><c:out value="${car.manufacturer.name}"/></td>
+            <td><c:out value="${car.manufacturer.country}"/></td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
                     ${driver.getId()} ${driver.getName()} ${driver.getLicenseNumber()} ${driver.login}<br>
