@@ -10,7 +10,7 @@ import taxi.service.model.Driver;
 import taxi.service.service.DriverService;
 
 public class AddDriverController extends HttpServlet {
-    private static final Injector injector = Injector.getInstance("mate");
+    private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
 
